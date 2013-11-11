@@ -19,6 +19,6 @@ g031k068
 	</li>
 	<li>
 		発展課題１
-		<a href="http://49.212.46.130/~g031k068/g031k068/cake/kadai6img.html">画像</a>
+		<a href="http://49.212.46.130/~g031k068/g031k068/kadai6img.html">画像</a>
 	</li>
 </ul>
