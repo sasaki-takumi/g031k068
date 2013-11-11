@@ -3,7 +3,14 @@ g031k068
 第6回 課題
 =======
 <ul>
-	<li>基礎課題１</li>
-	<li>基礎課題２</li>
+	<li>
+		基礎課題１
+		
+	</li>
+	<li>
+		基礎課題２
+		<a href="http://49.212.46.130/~g031k068/g031k068/cake/Mushups/">動作ページ</a>
+		<a href="https://github.com/sasaki-takumi/g031k068/blob/master/cake/app/Controller/MushupsController.php">コード</a>
+	</li>
 	<li>基礎課題３</li>
 </ul>
