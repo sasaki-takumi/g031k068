@@ -17,4 +17,8 @@ g031k068
 		<a href="http://49.212.46.130/~g031k068/g031k068/cake/Pracforms">動作ページ</a>
 		<a href="https://github.com/sasaki-takumi/g031k068/blob/master/cake/app/Controller/PracformsController.php">コード</a>
 	</li>
+	<li>
+		発展課題１
+		<a href="http://49.212.46.130/~g031k068/g031k068/cake/kadai6img.html">画像</a>
+	</li>
 </ul>
