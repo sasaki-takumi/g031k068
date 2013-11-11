@@ -13,7 +13,7 @@
 		echo $this->Html->tag('br /');
 		echo '趣味：';
 		foreach ($this->request->data['entry']['hobby'] as $value) {//趣味を表示
-			if ($value != '0') {
+			if (!empty($value)) {
 				echo $value.' ';
 			}
 		}
