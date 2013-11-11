@@ -7,7 +7,7 @@
 		}
 
 		public function result(){//resultアクション
-			//if(!empty($this->request->data))
-			$this->set('user',$this->Pracform->hantei($this->request->data));
+			$data = $this->Pracform->hantei($this->request->data);
+			$this->set('user',$data);
 		}
 	}
