@@ -1,4 +1,5 @@
 <?php
+	echo "hoge";
 	$aid = 'dj0zaiZpPVBkWGN6UU1IaEduWCZzPWNvbnN1bWVyc2VjcmV0Jng9MDI-';//yahooID
 
 	$rss = simplexml_load_file('http://b.hatena.ne.jp/s-takumi/rss');
