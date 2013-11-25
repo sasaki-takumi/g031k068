@@ -7,21 +7,21 @@ g031k068
 	<li>
 		基礎課題１
 		<a href="http://49.212.46.130/~g031k068/g031k068/cake/boards">動作ページ</a>
-		<a href="">コード</a>
+		<a href="https://github.com/sasaki-takumi/g031k068/blob/master/cake/app/Controller/BoardsController.php">コード</a>
 	</li>
 	<li>
 		基礎課題２
-		<a href="http://49.212.46.130/~g031k068/g031k068/kadai7jQuery.html">jQueryページ</a>
+		<a href="http://49.212.46.130/~g031k068/g031k068/kadai7jQuery.html">jQueryコード</a>
 	</li>
 	<li>
 		発展課題1
 		<a href="http://49.212.46.130/~g031k068/g031k068/cake/boards">動作ページ</a>
-		<a href="">コード</a>
+		<a href="https://github.com/sasaki-takumi/g031k068/blob/master/cake/app/Controller/BoardsController.php">コード</a>
 	</li>
 	<li>
 		発展課題2
 		<a href="http://49.212.46.130/~g031k068/g031k068/cake/entries">動作ページ</a>
-		<a href="">コード</a>
+		<a href="https://github.com/sasaki-takumi/g031k068/blob/master/cake/app/Controller/EntriesController.php">コード</a>
 	</li>
 </ul>
 
