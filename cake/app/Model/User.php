@@ -11,10 +11,10 @@
 			);
 
 		public function into($res){
-			$data['name'] = $res['entry']['name'];
-			$data['email'] = $res['entry']['email'];
-			$data['sex'] = $res['entry']['sex'];
-			$data['password'] = $res['entry']['pass'];
+			$data['name'] = $res['User']['name'];
+			$data['email'] = $res['User']['email'];
+			$data['sex'] = $res['User']['sex'];
+			$data['password'] = $res['User']['pass'];
 
 			if($this->save($data))//データを追加したら
 				return 1;
