@@ -46,4 +46,8 @@ g031k068
 		発展課題１
 		<a href="http://49.212.46.130/~g031k068/g031k068/kadai6img.html">画像</a>
 	</li>
+	<li>
+		発展課題２
+		<a href="http://49.212.46.130/~g031k068/g031k068/kadai6jQuery.html">jQueryコード</a>
+	</li>
 </ul>
