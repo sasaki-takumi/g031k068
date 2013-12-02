@@ -21,9 +21,6 @@
 		top: 60px;
 		width: 220px;
 	}
-	.container {
-		text-align: center;
-	}
 	</style>
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -39,9 +36,20 @@
 
 <body>
 	<div class="container">
-
 		<?php echo $this->Session->flash(); ?>
-		<?php echo $this->fetch('content'); ?>
+		
+
+	<div class="row">
+		<div class="col-sm-3" style="background:#b0c4de;">
+			<?php echo $this->fetch('left_sidebar'); ?>
+        </div>
+        <div class="col-sm-6" >
+			<?php echo $this->fetch('content'); ?>
+        </div>
+        <div class="col-sm-3" style="background:#b0c4de;">
+			<?php echo $this->fetch('right_sidebar'); ?>
+        </div>
+    </div>
 
 	</div><!-- /container -->
 

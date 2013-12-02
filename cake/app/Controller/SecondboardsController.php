@@ -1,6 +1,6 @@
 <?php
-	class BoardsController extends AppController {
-		public $name ='Boards';
+	class SecondboardsController extends AppController {
+		public $name ='Secondboards';
 		public $uses = array('Board','User');//モデルを利用
 		public $layout = 'bootstrap3';//レイアウトの利用
 		public $components = array(
@@ -13,11 +13,11 @@
 							)
 						),
 					//ログイン後の移動先
-					'loginRedirect' => array('controller' => 'boards','action' => 'index'),
+					'loginRedirect' => array('controller' => 'secondboards','action' => 'index'),
 					//ログアウト後の移動先
-					'logoutRedirect' => array('controller' => 'boards','action' => 'login'),
+					'logoutRedirect' => array('controller' => 'secondboards','action' => 'login'),
 					//ログインページのパス
-					'loginAction' => array('controller' => 'boards','action' => 'login'),
+					'loginAction' => array('controller' => 'secondboards','action' => 'login'),
 					//ログインしていないときのメーッセージ
 					'authError' => '名前とパスワードを入力して下さい',
 					)
@@ -78,7 +78,7 @@
 			                	$this->request->data['User']['pass_check'] = AuthComponent::password($this->request->data['User']['pass_check']);
 
 				                $this->User->save($this->request->data);
-								
+
 								$this->Session->setFlash(__('登録が完了しました'), 'alert', array(
 									'plugin' => 'BoostCake',
 									'class' => 'alert-success'
@@ -108,8 +108,14 @@
 		public function index(){//トップページ
 			$this->layout = 'bootstrap3board';//レイアウトの指定
 
-			$this->set('data',$this->Board->find('all',array(
-				'order' => 'Board.id DESC')));
+			$this->paginate=array(
+			    'limit' => 10,
+			    'order' => array(
+            		'Board.id' => 'desc'
+        		)
+			 );
+
+			$this->set('data',$this->paginate());
 
 			//検索
 			if($this->request->is('post')){//POST送信だったら

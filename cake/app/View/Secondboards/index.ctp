@@ -1,6 +1,6 @@
 <?php
 	echo $this->Html->tag('h4',$this->Html->link(
-		'投稿する','http://49.212.46.130/~g031k068/g031k068/cake/boards/create'
+		'投稿する','http://49.212.46.130/~g031k068/g031k068/cake/secondboards/create'
 	));
 	foreach ($data as $value) {
 		echo 'ユーザ名：'.$value['User']['name'].' , ';//ユーザ名を表示
@@ -16,6 +16,7 @@
 		
 		echo $this->Html->tag('hr /');
 	}
+	echo $this->Paginator->pagination(array('ul' => 'pagination'));
 
 	$this->start('left_sidebar');//左にサイドバー(left_sidebar)ブロックスを作成
 		echo 'ようこそ'.$user['name'].'さん';
