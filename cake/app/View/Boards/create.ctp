@@ -7,7 +7,7 @@
 
 		echo $this->Form->label('entry.comment',$label);//ラベルの表示
 		if (isset($data)){//編集の場合
-			echo $this->Form->text('entry.comment',array('value' => $data['Board']['comment']));//コメント入力欄を表示
+			echo $this->Form->text('entry.comment',array('value' => $data['Board']['comment'],'required' => 'required'));//コメント入力欄を表示
 			echo $this->Form->hidden('entry.id',array('value' => $data['Board']['id']));//idをhidden取得
 		}else//追加の場合
 			echo $this->Form->text('entry.comment');//コメント入力欄を表示
