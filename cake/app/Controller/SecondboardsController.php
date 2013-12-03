@@ -107,24 +107,35 @@
 		public function index(){//トップページ
 			$this->layout = 'bootstrap3board';//レイアウトの指定
 
-			$this->paginate=array(
-			    'limit' => 10,
-			    'order' => array(
-            		'Board.id' => 'desc'
-        		)
-			 );
-
-			$this->set('data',$this->paginate());
+			
 
 			//検索
 			if($this->request->is('post')){//POST送信だったら
-				$tmp = $this->Board->find('all',array(
-					'conditions' => array('Board.comment like' => '%'.$this->request->data['Board']['content'].'%'),
-					'order' => 'Board.id '.$this->request->data['Board']['sort'],
-					'limit' => $this->request->data['Board']['num']
-				));
+				// $tmp = $this->Board->find('all',array(
+				// 	'conditions' => array('Board.comment like' => '%'.$this->request->data['Board']['content'].'%'),
+				// 	'order' => 'Board.id '.$this->request->data['Board']['sort'],
+				// 	'limit' => $this->request->data['Board']['num']
+				// ));
 
-				$this->set('result',$tmp);
+				// $this->set('result',$tmp);
+				$this->paginate=array(
+					'conditions' => array('Board.comment like' => '%'.$this->request->data['Board']['content'].'%'),
+				    'limit' => $this->request->data['Board']['num'],
+				    'order' => array(
+	            		'Board.id' => $this->request->data['Board']['sort']
+		        		)
+				 );
+
+				$this->set('data',$this->paginate());
+			}else {
+				$this->paginate=array(
+				    'limit' => 10,
+				    'order' => array(
+	            		'Board.id' => 'desc'
+		        		)
+				 );
+
+				$this->set('data',$this->paginate());
 			}
 		}
 

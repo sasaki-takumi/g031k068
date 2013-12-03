@@ -43,11 +43,8 @@
 		<div class="col-sm-3" style="background:#b0c4de;">
 			<?php echo $this->fetch('left_sidebar'); ?>
         </div>
-        <div class="col-sm-6" >
+        <div class="col-sm-9" >
 			<?php echo $this->fetch('content'); ?>
-        </div>
-        <div class="col-sm-3" style="background:#b0c4de;">
-			<?php echo $this->fetch('right_sidebar'); ?>
         </div>
     </div>
 

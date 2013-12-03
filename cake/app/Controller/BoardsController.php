@@ -107,9 +107,6 @@
 		public function index(){//トップページ
 			$this->layout = 'bootstrap3board';//レイアウトの指定
 
-			$this->set('data',$this->Board->find('all',array(
-				'order' => 'Board.id DESC')));
-
 			//検索
 			if($this->request->is('post')){//POST送信だったら
 				$tmp = $this->Board->find('all',array(
@@ -119,6 +116,9 @@
 				));
 
 				$this->set('result',$tmp);
+			}else {
+				$this->set('data',$this->Board->find('all',array(
+								'order' => 'Board.id DESC')));
 			}
 		}
 
