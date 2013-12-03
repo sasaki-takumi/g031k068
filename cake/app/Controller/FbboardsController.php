@@ -1,6 +1,8 @@
 <?php
-	class BoardsController extends AppController {
-		public $name ='Boards';
+
+
+	class FbboardsController extends AppController {
+		public $name ='Fbboards';
 		public $uses = array('Board','User');//モデルを利用
 		public $layout = 'bootstrap3';//レイアウトの利用
 		public $components = array(
@@ -13,20 +15,41 @@
 							)
 						),
 					//ログイン後の移動先
-					'loginRedirect' => array('controller' => 'boards','action' => 'index'),
+					'loginRedirect' => array('controller' => 'fbboards','action' => 'index'),
 					//ログアウト後の移動先
-					'logoutRedirect' => array('controller' => 'boards','action' => 'login'),
+					'logoutRedirect' => array('controller' => 'fbboards','action' => 'login'),
 					//ログインページのパス
-					'loginAction' => array('controller' => 'boards','action' => 'login'),
+					'loginAction' => array('controller' => 'fbboards','action' => 'login'),
 					//ログインしていないときのメーッセージ
 					'authError' => '名前とパスワードを入力して下さい',
 					)
 				);
 		
 		public function beforeFilter(){
-			$this->Auth->allow('login','logout','useradd');//ログインしなくても、アクセスできるアクションを登録する
+			$this->Auth->allow('login','logout','useradd','createFacebook','fblogin');//ログインしなくても、アクセスできるアクションを登録する
 			$this->set('user',$this->Auth->user());//ctpで$userを使えるようにする
+
+			App::import('Vendor','facebook', array('file' => 'facebook'.DS.'src'.DS.'facebook.php'));//sdkのインポート
 		}
+
+		private function createFacebook() {
+                return new Facebook(array(
+                        'appId' => '254291381395538',
+                        'secret' => '0a04066162e1ebf2da8a6fb169a2dbe6'
+                ));
+        }
+
+        public function fblogin(){
+        	$facebook = $this->createFacebook();
+            $fb_user = $facebook->getUser(); //これ大事
+
+            if (!$fb_user){
+            	$url = $facebook->getLoginUrl(array(
+                    'scope' => 'email,publish_stream,user_birthday,user_education_history,user_likes'
+                ));
+                $this->redirect($url);
+            }
+        }
 
 		public function login(){//ログイン
 			if($this->request->is('post')){//POST送信だったら

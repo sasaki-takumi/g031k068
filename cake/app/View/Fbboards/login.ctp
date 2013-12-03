@@ -5,4 +5,5 @@
     <?php echo $this->Form->input('User.password', array('label' => 'パスワード')); ?>
     <?php echo $this->Form->end('ログイン'); ?>
     <a href="useradd" id="switch" class="label btn-primary">新規登録</a>
+    <?php echo $this->Html->link('Facebook',array('action' => 'fblogin')); ?>
 </div>

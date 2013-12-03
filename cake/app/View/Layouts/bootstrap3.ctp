@@ -21,9 +21,6 @@
 		top: 60px;
 		width: 220px;
 	}
-	.container {
-		text-align: center;
-	}
 	</style>
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->

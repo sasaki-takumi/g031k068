@@ -9,7 +9,7 @@
 						'authenticate' => array(
 							'Form' => array(
 								'userModel' => 'User',//Userモデルを使用
-								'fields' => array('username' => 'email','password' => 'password')//認証に利用するフィールドの変更
+								'fields' => array('username' => 'name','password' => 'password')//認証に利用するフィールドの変更
 							)
 						),
 					//ログイン後の移動先
@@ -96,11 +96,10 @@
 						));
 	                }
 				}else {
-
-            			$this->Session->setFlash(__('入力されたユーザ名は既に使われています'), 'alert', array(
-							'plugin' => 'BoostCake',
-							'class' => 'alert-danger'
-						));
+        			$this->Session->setFlash(__('入力されたユーザ名は既に使われています'), 'alert', array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-danger'
+					));
 				}
             }
         }
