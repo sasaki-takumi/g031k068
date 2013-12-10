@@ -1,0 +1,103 @@
+@charset "Shift_Jis";
+
+body{
+	margin:0;
+	padding:0;
+	/*background-color:#dcdcdc;*/
+	background: #ffffff url('../img/back2.jpg');
+	background-repeat: no-repeat;            /* 背景を繰り返さない */
+  	background-position: 50% 50%;            /* 背景画像の位置は画面中央 */
+  	background-attachment:fixed;             /* 背景画像を固定する */
+  	/*overflow: hidden;*/
+	/*min-width: 10px;*/
+}
+
+#wrapper{
+	margin:0 auto 0 auto;
+	padding:0;
+	/*background-color:#ffffff;*/
+	width:1100px;
+	/*background-color:rgba(255,255,255,0.5);*/
+	background-color: transparent;
+  	background-image: url('../img/tomei.png');
+  	background-repeat: repeat;
+  	margin-left: 50;
+  	/*margin: 0, auto;*/
+	/*opacity: 0.9;*/
+}
+
+#header{
+	width:1100px;
+	margin:0;
+	padding:0;
+	color: white;
+	font-size: 5em;
+	/*background-color:#eee8aa;*/
+	text-align: center;
+	/*background: url(back.jpg);*/
+}
+
+#contents{
+	margin:0;
+	padding:0;
+	width:1100px;
+	/*background-color:#f0f8ff;*/
+	background-color: transparent;
+  	background-image: url('../img/side.png');
+  	background-repeat: repeat;
+  	/*margin: 0, auto;*/
+}
+
+#navi{
+	margin:0;
+	padding:0;
+	float:left;
+	width:250px;
+	color: #DCDCDC;
+}
+
+#navi ul{
+	margin-top:10px;
+	margin-left:20px;
+	font-size:0.75em;
+}
+
+.scroll {
+	height: 650px;
+	overflow-y: scroll;
+}
+
+#main{
+	margin:0;
+	padding:0;
+	float:right;
+	width:800px;
+	background-color:#ffffff;
+	background: url('../img/background.png') repeat;
+}
+
+#contents:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
+#footer{
+	margin:0;
+	padding:0;
+	/*background-color:#eee8aa;*/
+	text-align: right;
+	/*background: url(back.jpg);*/
+	color: white;
+}
+
+.button {
+	border:solid 1px #EEA34A;
+}
+
+p{
+	margin:0;
+	padding:10px;
+}

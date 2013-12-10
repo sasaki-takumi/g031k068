@@ -12,4 +12,5 @@
     ?><!-- 性別 -->
     <?php echo $this->Form->end('新規ユーザを作成する'); ?>
     <a href="login" id="switch2" class="label btn-primary">ログインへ</a>
+
 </div>

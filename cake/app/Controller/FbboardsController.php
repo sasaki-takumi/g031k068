@@ -1,6 +1,4 @@
 <?php
-
-
 	class FbboardsController extends AppController {
 		public $name ='Fbboards';
 		public $uses = array('Board','User');//モデルを利用
@@ -26,17 +24,15 @@
 				);
 		
 		public function beforeFilter(){
-			$this->Auth->allow('login','logout','useradd','createFacebook','fblogin');//ログインしなくても、アクセスできるアクションを登録する
+			$this->Auth->allow('login','logout','useradd','createFacebook','fblogin','fb_callback');//ログインしなくても、アクセスできるアクションを登録する
 			$this->set('user',$this->Auth->user());//ctpで$userを使えるようにする
-
-			App::import('Vendor','facebook', array('file' => 'facebook'.DS.'src'.DS.'facebook.php'));//sdkのインポート
 		}
 
 		private function createFacebook() {
-                return new Facebook(array(
-                        'appId' => '254291381395538',
-                        'secret' => '0a04066162e1ebf2da8a6fb169a2dbe6'
-                ));
+            return new Facebook(array(
+                    'appId' => '254291381395538',
+                    'secret' => '0a04066162e1ebf2da8a6fb169a2dbe6'
+            ));
         }
 
         public function fblogin(){
@@ -47,8 +43,43 @@
             	$url = $facebook->getLoginUrl(array(
                     'scope' => 'email,publish_stream,user_birthday,user_education_history,user_likes'
                 ));
-                $this->redirect($url);
+               $this->redirect($url);
             }
+        }
+
+        public function fb_callback(){
+			$this->facebook = $this->createFacebook();
+	    	//$me = null;
+			$user = $this->facebook->getUser();
+	          
+	    	if ($user) {
+	    		//$me = $this->facebook->api('/me');
+	    		$this->redirect($this->Auth->redirect());//ログイン成功したら、リダイレクト
+	    	} else {
+	    		$this->redirect('/fbboards/logout/');//失敗したら、元のページへもどる
+	    	}
+	            
+	        
+	  //   	$access_token = $this->facebook->getAccessToken();//access_token入手
+	  //   	$test = $this->Example->find('first',array('conditions' => array('facebook_id' => $me['id'])));
+	    	
+	  //   	$this->Example->facebook(
+			// 		Array(
+	  //       		              'facebook_id' => $me['id'],
+	  //           	                      'username' => $me['first_name'].'.'.$me['last_name'],
+	  //           	                      'facebook_access_token' =>  $access_token,
+	  //           	                      )
+	  //           );//facebookのデータからユーザ登録を行う
+	    	
+	    	
+			// $this->data['Example']['facebook_id'] = $me['id'];
+			// $this->data['Example']['facebook_access_token'] = $access_token;
+			
+			// if ($this->Auth->login($this->data)){//Authの処理
+			// 	$this->redirect($this->Auth->redirect());//ログイン成功したら、リダイレクト
+			// } else {
+			// 	$this->redirect('/fbboards/logout/');//失敗したら、元のページへもどる
+			// }
         }
 
 		public function login(){//ログイン

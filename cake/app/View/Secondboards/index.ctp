@@ -3,8 +3,10 @@
 	echo $this->Html->tag('hr /');
 
 	echo $this->Html->tag('h4',$this->Html->link(
-		'投稿する','http://49.212.46.130/~g031k068/g031k068/cake/secondboards/create'
+		'投稿する','http://www31092u.sakura.ne.jp/~g031k068/g031k068/cake/secondboards/create'
 	));
+
+	//debug($user);
 
 	if (empty($result)) {
 		foreach ($data as $value) {
@@ -14,11 +16,18 @@
 			echo 'コメント：'.$value['Board']['comment'].' , ';//コメントを表示
 			echo $value['Board']['created'];//投稿年月日、時間を表示
 
-			if($user['id'] == $value['Board']['user_id']){
-				echo $this->Html->link('編集',array('action' => 'edit', $value['Board']['id'])).' ';
-				echo $this->Html->link('削除',array('action' => 'delete', $value['Board']['id']));
+			if (empty($twid)) {//twitterでログインしていなかったら
+				if($user['id'] == $value['Board']['user_id']){//idが同じだったら
+					echo $this->Html->link('編集',array('action' => 'edit', $value['Board']['id'])).' ';
+					echo $this->Html->link('削除',array('action' => 'delete', $value['Board']['id']));
+				}
+			}else {//twitterでログインしていたら
+				if($twid == $value['Board']['user_id']){//idが同じだったら
+					echo $this->Html->link('編集',array('action' => 'edit', $value['Board']['id'])).' ';
+					echo $this->Html->link('削除',array('action' => 'delete', $value['Board']['id']));
+				}
 			}
-			
+
 			echo $this->Html->tag('hr /');
 		}
 	}else {
@@ -36,7 +45,7 @@
 	echo $this->Paginator->pagination(array('ul' => 'pagination'));
 
 	$this->start('left_sidebar');//左にサイドバー(left_sidebar)ブロックスを作成
-		echo 'ようこそ'.$user['name'].'さん';
+		//echo 'ようこそ'.$user['name'].'さん';
 		echo $this->Html->tag('br /');
 		echo $this->Html->link('ログアウト',array('action' => 'logout'));
 	$this->end();

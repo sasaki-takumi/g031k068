@@ -18,3 +18,4 @@
 		echo $this->Html->tag('br /');
 		$i++;
 	}
+	debug($api);

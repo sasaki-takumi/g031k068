@@ -609,7 +609,7 @@ abstract class BaseFacebook
       array_merge(
         array(
           'client_id' => $this->getAppId(),
-          'redirect_uri' => $currentUrl, // possibly overwritten
+          'redirect_uri' => 'http://www31092u.sakura.ne.jp/~g031k068/g031k068/cake/secondboards/fb_callback',//$currentUrl, // possibly overwritten
           'state' => $this->state,
           'sdk' => 'php-sdk-'.self::VERSION
         ),
