@@ -2,7 +2,7 @@
 	echo $this->element('commentSearch');
 	echo $this->Html->tag('hr /');
 
-	echo $this->Html->tag('h4',$this->Html->link(
+	echo $this->Html->tag('h2',$this->Html->link(
 		'投稿する','http://www31092u.sakura.ne.jp/~g031k068/g031k068/cake/secondboards/create'
 	));
 
@@ -16,13 +16,13 @@
 			echo 'コメント：'.$value['Board']['comment'].' , ';//コメントを表示
 			echo $value['Board']['created'];//投稿年月日、時間を表示
 
-			if (empty($twid)) {//twitterでログインしていなかったら
+			if (empty($tfid)) {//twitterでログインしていなかったら
 				if($user['id'] == $value['Board']['user_id']){//idが同じだったら
 					echo $this->Html->link('編集',array('action' => 'edit', $value['Board']['id'])).' ';
 					echo $this->Html->link('削除',array('action' => 'delete', $value['Board']['id']));
 				}
 			}else {//twitterでログインしていたら
-				if($twid == $value['Board']['user_id']){//idが同じだったら
+				if($tfid == $value['Board']['user_id']){//idが同じだったら
 					echo $this->Html->link('編集',array('action' => 'edit', $value['Board']['id'])).' ';
 					echo $this->Html->link('削除',array('action' => 'delete', $value['Board']['id']));
 				}

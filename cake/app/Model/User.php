@@ -4,7 +4,7 @@
 		public $validate = array(
             'name' => array(
                 'rule1' => array(
-                    'rule' => array('custom','/^[a-zA-Z0-9_\-]*$/'),
+                    'rule' => array('custom','/^[a-zA-Z0-9_\-\s]*$/'),
                     // 'required' => true,
                     // 'allowEmpty' => false,
                     'message' => '半角英字で入力して下さい'
@@ -70,9 +70,9 @@
             return $data; //ログイン情報
         }
 
-        public function idid($data){//twitterユーザのidを返す
+        public function idid($data){//twitterまたはfacebookユーザUserテーブルのidを返す
             $tmp = $this->find('all',array(
-             'conditions' => array('tw_id' => $data['User']['tw_id']),
+             'conditions' => array('name' => $data['User']['name']),
             ));
 
             return $tmp[0]['User']['id'];//idを返す

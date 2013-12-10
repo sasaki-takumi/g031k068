@@ -43,7 +43,7 @@
             $this->Twitter->setTwitterSource('twitter');//アクセストークンの取得を実施
             $token = $this->Twitter->getAccessToken();
             $data['User'] = $this->User->signin($token); //ユーザ登録
-            var_dump($data);
+            //var_dump($data);
         	$this->Auth->login($data); //CakePHPのAuthログイン処理
             $this->redirect($this->Auth->loginRedirect); //ログイン後画面へリダイレクト
 		}
@@ -62,9 +62,9 @@
             if (!$fb_user){
             	$url = $facebook->getLoginUrl(array(
                     'scope' => 'email,publish_stream,user_birthday,user_education_history,user_likes'
-                ));
-               $this->set('acc',$fb_user);
-               $this->redirect($url);
+                    ));
+			
+			$this->redirect($url);
             }
         }
 
@@ -81,12 +81,13 @@
 
 	        $access_token = $facebook->getAccessToken();//access_token入手
 
-	        $data['name'] = $me['name'];
-	        $data['password'] = Security::hash($access_token);
+	        $data['User']['fb_id'] = $me['id'];//idの登録
+	        $data['User']['name'] = $me['name'];//名前の登録
+	        $data['User']['password'] = Security::hash($access_token);//パスワードの登録
 
 	        $this->User->set($data);
 			if($this->User->validates()){ //エラーがなければ
-				$this->save($data);
+				$this->User->save($data);
 			}
 	        
 			$this->Auth->login($data); //CakePHPのAuthログイン処理
@@ -174,7 +175,7 @@
 
 			$check = $this->Auth->user('id');
 			if (empty($check)) {//twitterでログインしたら
-				$this->set('twid',$this->User->idid($this->Auth->user()));
+				$this->set('tfid',$this->User->idid($this->Auth->user()));
 			}
 
 			if($this->request->is('post')){//POST送信だったら

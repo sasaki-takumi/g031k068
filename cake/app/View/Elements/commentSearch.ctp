@@ -1,5 +1,5 @@
 <?php
-	echo $this->Html->tag('h2','検索フォーム');
+	echo $this->Html->tag('h3','検索フォーム');
 	echo $this->Html->tag('br /');
 
 	echo $this->Form->create(array(
@@ -20,11 +20,6 @@
 			6 => 6,7 => 7,8 => 8,9 => 9,10 => 10),
 		array('value' => 1)
 	);
-
-	//echo $this->Form->text('num',array('type' => 'number','value' => '1'));//表示件数入力欄を表示
-
-
-
 
 	//降順か昇順を選択
 	echo $this->Form->select('sort',
