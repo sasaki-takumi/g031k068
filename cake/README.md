@@ -5,14 +5,9 @@ g031k068
 =======
 <ul>
 	<li>
-		基礎課題１
+		基礎課題１,基礎課題２
 		<a href="http://www31092u.sakura.ne.jp/~g031k068/g031k068/cake/secondboards">動作ページ</a>
-		<a href="https://github.com/sasaki-takumi/g031k068/blob/master/cake/app/Controller/BoardsController.php">コード</a>
-	</li>
-	<li>
-		基礎課題２
-		<a href="http://www31092u.sakura.ne.jp/~g031k068/g031k068/cake/secondboards/login">動作ページ</a>
-		<a href="https://github.com/sasaki-takumi/g031k068/blob/master/cake/app/Controller/BoardsController.php">コード</a>
+		<a href="https://github.com/sasaki-takumi/g031k068/blob/master/cake/app/Controller/SecondboardsController.php">コード</a>
 	</li>
 </ul>
 
