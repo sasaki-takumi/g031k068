@@ -6,6 +6,7 @@
 		public $components = array(
 					'DebugKit.Toolbar',//DebugKitを利用
 					'TwitterKit.Twitter',//twitter
+					'RequestHandler',//リクエストハンドラを利用
 					'Auth' => array(//ログイン機能を利用
 						'authenticate' => array(
 							'Form' => array(
@@ -29,6 +30,7 @@
 			$this->set('user',$this->Auth->user());//ctpで$userを使えるようにする
 
 			App::import('Vendor','facebook', array('file' => 'facebook'.DS.'src'.DS.'facebook.php'));//sdkのインポート
+			//CakeRequest::is('mobile');
 		}
 
 		public function twlogin(){//twitterのOAuth用ログインURLにリダイレクト
@@ -95,6 +97,10 @@
 	    }
 
 		public function login(){//ログイン
+			if($this->RequestHandler->isMobile()){//モバイルでアクセスしたら
+				$this->layout = 'mobile';//レイアウトの指定
+			}
+
 			if($this->request->is('post')){//POST送信だったら
 				if ($this->Auth->login()) {//ログイン成功したら
 					//$this->Session->delete('Auth.redirect');//前回ログアウト時のリンクを記録させない
@@ -119,6 +125,10 @@
         }
 
         public function useradd(){//ユーザ追加
+        	if($this->RequestHandler->isMobile()){//モバイルでアクセスしたら
+				$this->layout = 'mobile';//レイアウトの指定
+			}
+
             if($this->request->is('post')) {//POST送信だったら
 
 				//同じユーザ名があるかチェック
@@ -171,6 +181,10 @@
         }
 
 		public function index(){//トップページ
+			if($this->RequestHandler->isMobile()){//モバイルでアクセスしたら
+				$this->layout = 'mobile';//レイアウトの指定
+			}
+
 			$this->layout = 'bootstrap3board';//レイアウトの指定
 
 			$check = $this->Auth->user('id');
@@ -201,6 +215,10 @@
 		}
 
 		public function create(){
+			if($this->RequestHandler->isMobile()){//モバイルでアクセスしたら
+				$this->layout = 'mobile';//レイアウトの指定
+			}
+
 			if (!empty($this->request->data['entry']['comment']))//コメントが入力されていたら
 				$this->set('confirm',$this->request->data);
 			$this->set('label','投稿内容');//追加するときのラベル内容
@@ -218,6 +236,10 @@
 		}
 
 		public function edit($id) {//編集アクション
+			if($this->RequestHandler->isMobile()){//モバイルでアクセスしたら
+				$this->layout = 'mobile';//レイアウトの指定
+			}
+
 			$data = $this->Board->findById($id);//$idの情報を$dataに入れる
 			$this->set('data',$data);
 			$this->set('label','編集内容');//編集のときのラベル内容

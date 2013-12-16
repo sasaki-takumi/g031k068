@@ -9,9 +9,30 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
+	<meta name="apple-mobile-web-app-capable" content="yes"><!-- モバイルのために追加 -->
+  	<meta name="apple-mobile-web-app-status-bar-style" content="black"><!-- モバイルのために追加 -->
 	
-	<!-- urlが示すcssを利用 boostrap -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<!-- モバイルのために追加 -->
+	<link rel="stylesheet" href="https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
+  
+  	<!-- Extra Codiqa features --><!-- モバイルのために追加 -->
+	<link rel="stylesheet" href="codiqa.ext.css">
+
+	<!-- jQuery and jQuery Mobile --><!-- モバイルのために追加 -->
+	<script src="https://d10ajoocuyu32n.cloudfront.net/jquery-1.9.1.min.js"></script>
+
+	<!-- Ajaxに遷移しないようにするために、初期値を設定 --><!-- モバイルのために追加 -->
+	<script>
+		$(document).bind("mobileinit", function(){
+			$.mobile.ajaxEnabled = false;
+		});
+	</script>
+
+	<!-- モバイルのために追加 -->
+	<script src="https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+
+	<!-- Extra Codiqa features --><!-- モバイルのために追加 -->
+	<script src="https://d10ajoocuyu32n.cloudfront.net/codiqa.ext.js"></script>
 
 	<style>
 	body {

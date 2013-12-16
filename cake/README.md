@@ -1,6 +1,21 @@
 g031k068
 =======
 
+第11回 課題
+=======
+<ul>
+	<li>
+		基礎課題１
+		<a href="http://www31092u.sakura.ne.jp/~g031k068/g031k068/cake/secondboards">動作ページ</a>
+		<a href="https://github.com/sasaki-takumi/g031k068/blob/master/cake/app/Controller/SecondboardsController.php">コード</a>
+	</li>
+	<li>
+		基礎課題２
+		<a href="http://hollow-hanh.gopagoda.com/">動作ページ</a>
+		<a href="https://github.com/sasaki-takumi/pagodabox/blob/master/index.php">コード</a>
+	</li>
+</ul>
+
 第10回 課題
 =======
 <ul>

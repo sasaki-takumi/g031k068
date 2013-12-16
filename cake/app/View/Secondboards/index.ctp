@@ -1,10 +1,10 @@
 <?php
-	echo $this->element('commentSearch');
-	echo $this->Html->tag('hr /');
-
 	echo $this->Html->tag('h2',$this->Html->link(
 		'投稿する','http://www31092u.sakura.ne.jp/~g031k068/g031k068/cake/secondboards/create'
 	));
+
+	echo $this->element('commentSearch');
+	echo $this->Html->tag('hr /');
 
 	//debug($user);
 

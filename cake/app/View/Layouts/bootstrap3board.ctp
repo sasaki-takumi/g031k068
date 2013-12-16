@@ -12,6 +12,7 @@
 
 	<!-- urlが示すcssを利用 -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
 	<style>
 	body {
 		padding-top: 70px; /* 70px to make the container go all the way to the bottom of the topbar */
